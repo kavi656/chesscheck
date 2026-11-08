@@ -946,8 +946,11 @@ def live_tab():
     if not gfile.exists() and live:
         st.info(f"**Hosted snapshot.** The live runner polls Lichess from the presenter's laptop; this copy shows its "
                 f"results as of {live['updated_at'][:16].replace('T', ' ')} UTC. The fingerprint check above is live.")
+    done = ((live or {}).get("final_test") or {}).get("status") == "done"
+    badge_off = (f'<span style="color:{MUTED}">■ FINISHED · snapshot {live["updated_at"][11:16]} UTC</span>'
+                 if done and live else "● PAUSED")
     st.markdown(f'<div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px 0">'
-                f'<span class="live-badge">{"<span class=live-dot></span>LIVE" if fresh else "● PAUSED"}</span>'
+                f'<span class="live-badge">{"<span class=live-dot></span>LIVE" if fresh else badge_off}</span>'
                 f'<span style="color:{MUTED};font-size:0.85rem">runner polls 300 players in rounds of ~10 min · '
                 f'page refreshes every 30 s</span></div>', unsafe_allow_html=True)
     if not lg.empty:

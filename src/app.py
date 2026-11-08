@@ -931,6 +931,9 @@ def live_tab():
     gm = _mtime(str(gfile))
     lg = live_games(gm, commit["committed_at"])
     fresh = live and (now - pd.Timestamp(live["updated_at"])).total_seconds() < 25 * 60
+    if not gfile.exists() and live:
+        st.info(f"**Hosted snapshot.** The live runner polls Lichess from the presenter's laptop; this copy shows its "
+                f"results as of {live['updated_at'][:16].replace('T', ' ')} UTC. The fingerprint check above is live.")
     st.markdown(f'<div style="display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px 0">'
                 f'<span class="live-badge">{"<span class=live-dot></span>LIVE" if fresh else "● PAUSED"}</span>'
                 f'<span style="color:{MUTED};font-size:0.85rem">runner polls 300 players in rounds of ~10 min · '
@@ -1084,11 +1087,16 @@ with tabs[5]:
             st.session_state["ask_q"] = ex_q
             st.session_state.pop("ask_spec", None)
             st.session_state.pop("ask_res", None)
+    HAS_DATA = (ROOT / "data" / "processed" / "player_games.parquet").exists()
+    if not HAS_DATA:
+        st.info("**This is the hosted copy.** Answering a new question re-runs the full pipeline on the 22-million-row "
+                "dataset (about 1 GB), which lives on the presenter's laptop rather than on GitHub. Ask us during the demo, "
+                "or clone the repo and run `python -m src.ingest` to build it yourself.")
     q = st.text_input("Your hypothesis", key="ask_q",
                       placeholder="e.g. Players do worse in their third game after midnight")
     c1, c2 = st.columns([1, 3])
     sandbox = c2.toggle("Test mode (sandbox ledger)", value=True)
-    if c1.button("Convert to a testable spec", type="primary", disabled=not q):
+    if c1.button("Convert to a testable spec", type="primary", disabled=not q or not HAS_DATA):
         with st.spinner("Claude is translating your question…"):
             try:
                 from src.ask import translate

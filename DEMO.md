@@ -36,7 +36,7 @@
 
 - `python -m src.live verify` gives **VERIFIED**.
 - Show games played **since the commit**, with running estimates and **anytime-valid confidence sequences**, so we can peek live without inflating false positives.
-- Show the **pre-registered final test**: one shot, at a time fixed in the commitment, with BH across the committed set.
+- Show the **pre-registered final test**: one shot, at a time fixed in the commitment, with BH across the committed set. **Result: 0 of 16 confirmed** on 1,995 games (9 of 16 in the predicted direction, which is chance level). Say it straight: the sample was about 100× too small for effects this size, and the system reported NOT CONFIRMED rather than spinning a story.
 - Optional finale: click the example **"Do players perform worse after midnight their local time?"** in **Ask a question**. It looked real on explore (p = 2e-9) and then died at validation, so it's LUCKY. In UTC it was a confirmed null. Then let a judge type their own question (test mode on, so it can't touch the committed set). A "no" comes back as either *not enough evidence* or *NO EFFECT (confirmed)*, meaning anything that would matter is ruled out. Claude converts it, it's logged and counted in the correction, and it gets a verdict in ~25 s.
 
 ---
@@ -51,4 +51,5 @@
 | Naive on null | auto p-hacker 131 → 0 REAL; Claude 6 → 0 REAL |
 | Main ledger | 57 hypotheses → 14 REAL (**7 distinct findings**), 19 LUCKY, 23 REJECTED, 1 UNDERPOWERED |
 | Live commitment | 2026-11-08 08:53 UTC · 16 hypotheses · SHA-256 `1f3368e9…` · final test 11:53 UTC |
+| Live final test | 1,995 post-commit games · **0 / 16 confirmed** · 9 / 16 in predicted direction · CI widths 0.08–0.44 vs sealed effects 0.006–0.039 |
 | Bias caught | plain within-player test: "tilt" +0.047 at p = 10⁻²¹³ on pure noise → fixed |

@@ -18,7 +18,7 @@ Then it **bets on the future**: surviving hypotheses are written to a file whose
 - **100% power** at a planted effect of 0.01 (≈ 7 Elo), on two different hypotheses.
 - **Naive vs honest:** with the safeguards off, Claude and a p-hacker made **137 "discoveries" in pure noise**, and Claude wrote confident explanations for them. ChessCheck kept **0**.
 - **58 hypotheses → 14 REAL → 7 distinct findings** (mirror claims like "White +" / "Black −" are merged). Examples: White advantage ≈ +24 Elo; losing and re-queueing within minutes ≈ −5 to −8 Elo. The hot hand looked hugely significant, then died in the vault.
-- **16 predictions sealed** and checked live against new Lichess games.
+- **16 predictions sealed** and checked live against 1,995 new Lichess games. The pre-registered final test confirmed **0 of 16** (9 of 16 pointed the predicted way). That is the honest answer: 3 hours of Sunday-morning games give intervals far wider than effects of about 1 percentage point. ChessCheck said *not confirmed* instead of telling a story.
 
 ## How we built it
 - **Data:** streamed the Lichess open database (`.pgn.zst`) and parsed headers only with a byte-regex, giving 11.2M rated blitz games and 22.2M player-game rows. Bots and players with more than 200 games a day are excluded.

@@ -894,6 +894,19 @@ def trajectory(mtime: float, hid: str) -> pd.DataFrame:
     return pd.DataFrame(out)
 
 
+def final_card(commit, live, mins, t_final):
+    if t_final is None:
+        return kpi("—", "one-shot final test", "")
+    ft = (live or {}).get("final_test") or {}
+    when = f"pre-registered for {commit.get('final_test_at', '')[11:16]} UTC"
+    if ft.get("status") == "done":
+        n_ok = sum(r["verdict"] == "CONFIRMED" for r in ft["results"])
+        return kpi(f"{n_ok} / {len(ft['results'])}", "confirmed in final test", f"{when} · sample too small to confirm"
+                   if n_ok == 0 else when, "good" if n_ok else "orange")
+    return kpi(f"in {mins // 60}h {mins % 60:02d}m" if mins is not None and mins > 0 else "computing…",
+               "one-shot final test", when)
+
+
 @st.fragment(run_every=30)
 def live_tab():
     commit = read_fresh(ROOT / "commitment.json")
@@ -924,8 +937,7 @@ def live_tab():
                  "games played since",
                  (f"{live['n_games']:,} usable for testing (rated blitz, history known) · updated "
                   f"{live['updated_at'][11:16]} UTC") if live else "waiting for the runner"),
-             kpi((f"in {mins // 60}h {mins % 60:02d}m" if mins is not None and mins > 0 else "done") if t_final is not None else "—",
-                 "one-shot final test", f"pre-registered for {commit.get('final_test_at', '')[11:16]} UTC")]
+             final_card(commit, live, mins, t_final)]
     st.markdown(f'<div class="kpis">{"".join(cards)}</div>', unsafe_allow_html=True)
     gfile = RES / "live" / "games.jsonl"
     gm = _mtime(str(gfile))
@@ -991,11 +1003,32 @@ def live_tab():
         st.code(f"{h}\n\n$ python -m src.live verify\nVERIFIED: matches the published hash; commitment unchanged.", language=None)
     ft = (live or {}).get("final_test") or {}
     if ft.get("status") == "done":
-        n_ok = sum(r["verdict"] == "CONFIRMED" for r in ft["results"])
-        st.markdown(f"#### Final test: {n_ok} of {len(ft['results'])} predictions confirmed")
+        res = pd.DataFrame(ft["results"])
+        pred = {h["id"]: h for h in commit["hypotheses"]}
+        res["dir"] = res["id"].map(lambda i: pred[i].get("predicted_direction") or pred[i]["spec"]["direction"])
+        res["same"] = (res["effect"] < 0) == (res["dir"] == "less")
+        res["sealed"] = res["id"].map(lambda i: pred[i]["validate"]["effect"])
+        n_ok = int((res["verdict"] == "CONFIRMED").sum())
+        st.markdown(f"#### Final test: {n_ok} of {len(res)} predictions confirmed")
         st.caption(f"Games started between the commit and {ft['at'][11:16]} UTC ({ft['n_rows']:,} player-games). "
                    "One-sided test in the committed direction, Benjamini–Hochberg q = 0.05 across all committed hypotheses.")
-        st.dataframe(pd.DataFrame(ft["results"]), hide_index=True, width="stretch")
+        widths = (res["ci_high"] - res["ci_low"])
+        st.markdown(
+            f'<div class="claim"><div><b>What this means.</b> {int(res["same"].sum())} of {len(res)} live effects pointed the '
+            f'predicted way, about what a coin would do. The sealed effects are small ({res["sealed"].abs().min():.3f} to '
+            f'{res["sealed"].abs().max():.3f} score points, i.e. {elo(res["sealed"].abs().min())} to {elo(res["sealed"].abs().max())}), '
+            f'but a few hours of games give 95% intervals {widths.min():.2f} to {widths.max():.2f} wide. So this window could not '
+            f'confirm them, and ChessCheck says <b>not confirmed</b> rather than telling a story. The test was fixed in advance, so '
+            f'we report it as it is. A longer window would be a new, separate test.</div></div>', unsafe_allow_html=True)
+        st.dataframe(pd.DataFrame({
+            "ID": res["id"], "Prediction": res["id"].map(FINDING_TITLES).fillna(res["id"].map(lambda i: pred[i]["spec"]["statement"])),
+            "Sealed effect": res["sealed"].map(elo), "Live effect": res["effect"].map(elo),
+            "Live 95% CI": [f"{elo(l)} to {elo(h)}" for l, h in zip(res["ci_low"], res["ci_high"])],
+            "Predicted way?": res["same"].map({True: "yes", False: "no"}),
+            "p": res["p"].round(3), "Games": res["n_treated"],
+            "Verdict": res["verdict"].map({"CONFIRMED": "🟢 CONFIRMED", "NOT CONFIRMED": "⚪ NOT CONFIRMED"})}),
+            hide_index=True, width="stretch", height=40 + 35 * len(res),
+            column_config={"Prediction": st.column_config.TextColumn(width="large")})
     if not live:
         st.info("No post-commit games yet. Start `python -m src.live run`.")
         return

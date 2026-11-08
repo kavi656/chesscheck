@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-11-08T10:47:21+00:00",
-  "n_games": 1305,
-  "n_rows": 1315,
+  "updated_at": "2026-11-08T11:59:35+00:00",
+  "n_games": 1995,
+  "n_rows": 2009,
   "results": [
     {
       "id": "H0001",
       "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game",
       "direction": "less",
       "predicted_effect": -0.0074319871,
-      "effect": -0.0395513597774835,
-      "lo": -0.21412366220485002,
-      "hi": 0.135020942649883,
-      "n_treated": 228,
-      "n_control": 1087,
+      "effect": -0.014328756213633477,
+      "lo": -0.13372520503116705,
+      "hi": 0.10506769260390009,
+      "n_treated": 343,
+      "n_control": 1666,
       "status": "inconclusive"
     },
     {
@@ -20,11 +20,11 @@
       "statement": "Players on a 3+ game winning streak outperform their rating (hot hand)",
       "direction": "greater",
       "predicted_effect": 0.0061314191,
-      "effect": -0.0003286530759400775,
-      "lo": -0.2529577778063712,
-      "hi": 0.252300471654491,
-      "n_treated": 138,
-      "n_control": 1177,
+      "effect": 0.02849351956266207,
+      "lo": -0.13963201934122874,
+      "hi": 0.1966190584665529,
+      "n_treated": 222,
+      "n_control": 1787,
       "status": "inconclusive"
     },
     {
@@ -32,11 +32,11 @@
       "statement": "Players on a 3+ game losing streak underperform their rating",
       "direction": "less",
       "predicted_effect": -0.0060294714,
-      "effect": -0.0187524275684843,
-      "lo": -0.21378482799983475,
-      "hi": 0.17627997286286615,
-      "n_treated": 162,
-      "n_control": 1153,
+      "effect": -0.021612352656207395,
+      "lo": -0.1721096272422283,
+      "hi": 0.12888492192981352,
+      "n_treated": 250,
+      "n_control": 1759,
       "status": "inconclusive"
     },
     {
@@ -44,11 +44,11 @@
       "statement": "Players outperform their rating as White",
       "direction": "greater",
       "predicted_effect": 0.033837096,
-      "effect": 0.04073433625785741,
-      "lo": -0.07281029703876599,
-      "hi": 0.1542789695544808,
-      "n_treated": 655,
-      "n_control": 660,
+      "effect": 0.009584446045592832,
+      "lo": -0.07257058797515083,
+      "hi": 0.09173948006633649,
+      "n_treated": 1017,
+      "n_control": 992,
       "status": "inconclusive"
     },
     {
@@ -56,11 +56,11 @@
       "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform",
       "direction": "greater",
       "predicted_effect": 0.010066602,
-      "effect": -0.10519512128529525,
-      "lo": -0.46163095818233174,
-      "hi": 0.25124071561174127,
-      "n_treated": 47,
-      "n_control": 1268,
+      "effect": -0.061921763008339056,
+      "lo": -0.34322944934280175,
+      "hi": 0.21938592332612364,
+      "n_treated": 68,
+      "n_control": 1941,
       "status": "inconclusive"
     },
     {
@@ -68,11 +68,11 @@
       "statement": "Among 2000+ players, playing White helps more than average",
       "direction": "greater",
       "predicted_effect": 0.03937357,
-      "effect": -0.018062401004891725,
-      "lo": -0.3209789426711156,
-      "hi": 0.2848541406613322,
-      "n_treated": 207,
-      "n_control": 218,
+      "effect": -0.036456185431948285,
+      "lo": -0.2422152350140136,
+      "hi": 0.16930286415011703,
+      "n_treated": 319,
+      "n_control": 330,
       "status": "inconclusive"
     },
     {
@@ -80,11 +80,11 @@
       "statement": "games with prev_result == win and minutes_since_prev_game <= 5 outperform the player's other games (rating-adjusted)",
       "direction": "greater",
       "predicted_effect": 0.0099885843,
-      "effect": 0.008337110748307813,
-      "lo": -0.2021197403805512,
-      "hi": 0.21879396187716682,
-      "n_treated": 220,
-      "n_control": 1095,
+      "effect": 0.022669518493527732,
+      "lo": -0.119785987636937,
+      "hi": 0.16512502462399248,
+      "n_treated": 342,
+      "n_control": 1667,
       "status": "inconclusive"
     },
     {
@@ -92,11 +92,11 @@
       "statement": "games with color == black underperform the player's other games (rating-adjusted)",
       "direction": "less",
       "predicted_effect": -0.033837096,
-      "effect": -0.04073433625785741,
-      "lo": -0.1542789695544808,
-      "hi": 0.07281029703876599,
-      "n_treated": 660,
-      "n_control": 655,
+      "effect": -0.009584446045592832,
+      "lo": -0.09173948006633649,
+      "hi": 0.07257058797515083,
+      "n_treated": 992,
+      "n_control": 1017,
       "status": "inconclusive"
     },
     {
@@ -104,23 +104,23 @@
       "statement": "Among players in <1200, games with streak <= -3 underperform the player's other games (rating-adjusted)",
       "direction": "less",
       "predicted_effect": -0.012758442,
-      "effect": null,
-      "lo": null,
-      "hi": null,
-      "n_treated": 20,
-      "n_control": 171,
-      "status": "waiting for data"
+      "effect": -0.02381467941331588,
+      "lo": -0.6701317740903261,
+      "hi": 0.6225024152636944,
+      "n_treated": 34,
+      "n_control": 251,
+      "status": "inconclusive"
     },
     {
       "id": "H0033",
       "statement": "games with prev_result == loss and minutes_since_prev_game <= 2 underperform the player's other games (rating-adjusted)",
       "direction": "less",
       "predicted_effect": -0.010720631,
-      "effect": -0.07524377173345481,
-      "lo": -0.44622664676834306,
-      "hi": 0.29573910330143344,
-      "n_treated": 52,
-      "n_control": 1263,
+      "effect": -0.01129754681380281,
+      "lo": -0.27469108763851996,
+      "hi": 0.25209599401091437,
+      "n_treated": 73,
+      "n_control": 1936,
       "status": "inconclusive"
     },
     {
@@ -128,11 +128,11 @@
       "statement": "Among 1200-1600 players, a 2+ game winning streak is followed by outperformance vs their other games",
       "direction": "greater",
       "predicted_effect": 0.006811821,
-      "effect": 0.004921062321945054,
-      "lo": -0.7561750280122762,
-      "hi": 0.7660171526561662,
-      "n_treated": 51,
-      "n_control": 238,
+      "effect": 0.0736546860126658,
+      "lo": -0.4191290600478602,
+      "hi": 0.5664384320731918,
+      "n_treated": 79,
+      "n_control": 349,
       "status": "inconclusive"
     },
     {
@@ -140,11 +140,11 @@
       "statement": "Among 2000-2400 players, being Black in 3+0 games underperforms more than average",
       "direction": "less",
       "predicted_effect": -0.03804056,
-      "effect": -0.03022859754523822,
-      "lo": -0.6867581491621237,
-      "hi": 0.6263009540716473,
-      "n_treated": 92,
-      "n_control": 90,
+      "effect": 0.040254354259434674,
+      "lo": -0.45849085473603385,
+      "hi": 0.5389995632549032,
+      "n_treated": 139,
+      "n_control": 137,
       "status": "inconclusive"
     },
     {
@@ -152,11 +152,11 @@
       "statement": "Among 1200-1600 players, games in 5+0 as Black after a loss underperform",
       "direction": "less",
       "predicted_effect": -0.0082669407,
-      "effect": 0.020071161074781407,
-      "lo": -1.3274891261404713,
-      "hi": 1.3676314482900342,
-      "n_treated": 80,
-      "n_control": 62,
+      "effect": 0.027746589588178647,
+      "lo": -0.7524565713570944,
+      "hi": 0.8079497505334517,
+      "n_treated": 117,
+      "n_control": 88,
       "status": "inconclusive"
     },
     {
@@ -164,23 +164,23 @@
       "statement": "Among 2400+ players, favourites facing a lower-rated opponent (-diff 100+) in a session beyond game 10 underperform",
       "direction": "less",
       "predicted_effect": -0.027403004,
-      "effect": null,
-      "lo": null,
-      "hi": null,
-      "n_treated": 18,
-      "n_control": 118,
-      "status": "waiting for data"
+      "effect": 0.04783398792286792,
+      "lo": -0.49056574725305907,
+      "hi": 0.586233723098795,
+      "n_treated": 35,
+      "n_control": 182,
+      "status": "inconclusive"
     },
     {
       "id": "H0055",
       "statement": "Winning streak of 1 combined with a quick next game (<=5 min) in 1600-2000 band outperforms",
       "direction": "greater",
       "predicted_effect": 0.010168782,
-      "effect": -0.06716180522214121,
-      "lo": -0.9547154914976207,
-      "hi": 0.8203918810533383,
-      "n_treated": 55,
-      "n_control": 355,
+      "effect": -0.05487895253052767,
+      "lo": -0.5148611229203538,
+      "hi": 0.4051032178592985,
+      "n_treated": 87,
+      "n_control": 560,
       "status": "inconclusive"
     },
     {
@@ -191,14 +191,178 @@
       "effect": null,
       "lo": null,
       "hi": null,
-      "n_treated": 10,
-      "n_control": 181,
+      "n_treated": 17,
+      "n_control": 268,
       "status": "waiting for data"
     }
   ],
   "final_test": {
-    "status": "pending",
-    "at": "2026-11-08T11:53:43+00:00"
+    "status": "done",
+    "at": "2026-11-08T11:53:43+00:00",
+    "n_rows": 2009,
+    "bh_threshold": -1.0,
+    "results": [
+      {
+        "id": "H0001",
+        "effect": -0.014328756213633477,
+        "ci_low": -0.07009127147520641,
+        "ci_high": 0.04143375904793946,
+        "p": 0.3072563763098981,
+        "n_treated": 343,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0002",
+        "effect": 0.02849351956266207,
+        "ci_low": -0.04321121086051007,
+        "ci_high": 0.10019824998583421,
+        "p": 0.21803375646171064,
+        "n_treated": 222,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0004",
+        "effect": -0.021612352656207395,
+        "ci_low": -0.08921052537539821,
+        "ci_high": 0.04598582006298342,
+        "p": 0.26544523379799556,
+        "n_treated": 250,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0006",
+        "effect": 0.009584446045592832,
+        "ci_low": -0.032288651590581814,
+        "ci_high": 0.05145754368176748,
+        "p": 0.32684941103288634,
+        "n_treated": 1017,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0009",
+        "effect": -0.061921763008339056,
+        "ci_low": -0.1837662108184204,
+        "ci_high": 0.05992268480174229,
+        "p": 0.8403940385906603,
+        "n_treated": 68,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0010",
+        "effect": -0.036456185431948285,
+        "ci_low": -0.10848568566734867,
+        "ci_high": 0.035573314803452105,
+        "p": 0.8394041467439712,
+        "n_treated": 319,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0019",
+        "effect": 0.022669518493527732,
+        "ci_low": -0.038087721044101894,
+        "ci_high": 0.08342675803115736,
+        "p": 0.232295517954493,
+        "n_treated": 342,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0023",
+        "effect": -0.009584446045592832,
+        "ci_low": -0.05145754368176748,
+        "ci_high": 0.032288651590581814,
+        "p": 0.32684941103288634,
+        "n_treated": 992,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0028",
+        "effect": -0.02381467941331588,
+        "ci_low": -0.17556840566232274,
+        "ci_high": 0.12793904683569096,
+        "p": 0.37920006629009717,
+        "n_treated": 34,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0033",
+        "effect": -0.01129754681380281,
+        "ci_low": -0.13274667262920234,
+        "ci_high": 0.11015157900159671,
+        "p": 0.4276639051321973,
+        "n_treated": 73,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0039",
+        "effect": 0.0736546860126658,
+        "ci_low": -0.043115350891999166,
+        "ci_high": 0.19042472291733076,
+        "p": 0.10817291830140213,
+        "n_treated": 79,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0041",
+        "effect": 0.040254354259434674,
+        "ci_low": -0.0761251629120291,
+        "ci_high": 0.15663387143089846,
+        "p": 0.7510956886448572,
+        "n_treated": 139,
+        "min_effect": 0.01,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0046",
+        "effect": 0.027746589588178647,
+        "ci_low": -0.10593695356512238,
+        "ci_high": 0.16143013274147966,
+        "p": 0.6579248924364937,
+        "n_treated": 117,
+        "min_effect": 0.008,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0054",
+        "effect": 0.04783398792286792,
+        "ci_low": -0.09799146360575645,
+        "ci_high": 0.19365943945149228,
+        "p": 0.739863144775873,
+        "n_treated": 35,
+        "min_effect": 0.01,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0055",
+        "effect": -0.05487895253052767,
+        "ci_low": -0.17729755535183903,
+        "ci_high": 0.06753965029078368,
+        "p": 0.8102036677200384,
+        "n_treated": 87,
+        "min_effect": 0.005,
+        "verdict": "NOT CONFIRMED"
+      },
+      {
+        "id": "H0056",
+        "effect": 0.16169360366154836,
+        "ci_low": -0.05698618055635568,
+        "ci_high": 0.3803733878794524,
+        "p": 0.9263646973328344,
+        "n_treated": 17,
+        "min_effect": 0.008,
+        "verdict": "NOT CONFIRMED"
+      }
+    ]
   },
   "mode": "export (token)"
 }

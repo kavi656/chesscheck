@@ -1,0 +1,75 @@
+{
+  "data": "null",
+  "refiner": "llm",
+  "runs": [
+    {
+      "seed": 0,
+      "n_tested": 66,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0022",
+          "statement": "Returning after more than ~110 minutes lowers performance for 1200-1600 players.",
+          "naive_p": 0.03630919494926237,
+          "naive_effect": -0.0014777444175080366,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0363 fails BH (q=0.05, m=65, threshold=-1)"
+        },
+        {
+          "id": "H0030",
+          "statement": "D-family openings (closed/queen pawn) beat C-family openings for 1200-1600 players.",
+          "naive_p": 0.004814378045481317,
+          "naive_effect": 0.002557939931308398,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00481 fails BH (q=0.05, m=65, threshold=-1)"
+        },
+        {
+          "id": "H0038",
+          "statement": "After 2+ straight losses, <1200 players score above their own baseline, because their rating has dipped below their true strength.",
+          "naive_p": 0.001469972559939485,
+          "naive_effect": 0.003466063903238107,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00147 fails BH (q=0.05, m=65, threshold=-1)"
+        },
+        {
+          "id": "H0042",
+          "statement": "1600-2000 favourites (elo_diff>42) score above their own baseline, because Elo expectation overstates favourites' edge less than it does for typical games.",
+          "naive_p": 0.04829409034434507,
+          "naive_effect": 0.001187392444108044,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0483 fails BH (q=0.05, m=65, threshold=-1)"
+        },
+        {
+          "id": "H0045",
+          "statement": "Friday games lower performance for 2000-2400 players.",
+          "naive_p": 0.024387121754943366,
+          "naive_effect": -0.0037001203115330185,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0244 fails BH (q=0.05, m=65, threshold=-1)"
+        },
+        {
+          "id": "H0057",
+          "statement": "After 3+ straight losses, 1600-2000 players score above their own baseline.",
+          "naive_p": 0.0398863777768714,
+          "naive_effect": 0.001606189302795707,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0399 fails BH (q=0.05, m=65, threshold=-1)"
+        }
+      ]
+    }
+  ],
+  "mean_naive_discoveries": 6.0,
+  "mean_honest_real": 0.0
+}

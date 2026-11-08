@@ -1,0 +1,478 @@
+[
+ {
+  "statement": "Among 1200-1600 players, a 2+ game winning streak is followed by outperformance vs their other games",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1200-1600"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "streak",
+    "op": ">=",
+    "value": 2
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "greater",
+  "min_effect": 0.005,
+  "rationale": "Momentum or confidence and in-form play may raise performance beyond rating, especially in mid-level players whose ratings lag form."
+ },
+ {
+  "statement": "Among 1600-2000 players, the first game of a session underperforms their other games",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1600-2000"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "session_index",
+    "op": "==",
+    "value": 1
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.008,
+  "rationale": "Warm-up effects: players are cold at session start and play below their typical strength."
+ },
+ {
+  "statement": "Among 2000-2400 players, being Black in 3+0 games underperforms more than average",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "2000-2400"
+   },
+   {
+    "feature": "time_control",
+    "op": "==",
+    "value": "180+0"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "color",
+    "op": "==",
+    "value": "black"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.01,
+  "rationale": "White advantage is amplified in fast bullet-like blitz where initiative matters and strong players convert it."
+ },
+ {
+  "statement": "Games after a loss with a long break (60+ min) rebound relative to the player's other games",
+  "subset": [
+   {
+    "feature": "prev_result",
+    "op": "==",
+    "value": "loss"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "minutes_since_prev_game",
+    "op": ">=",
+    "value": 60
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "greater",
+  "min_effect": 0.005,
+  "rationale": "A cooling-off period after a loss should remove tilt, so players return fresh."
+ },
+ {
+  "statement": "Among <1200 players, playing 10+ games in a day (fatigue) lowers performance vs their other games",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "<1200"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "games_played_today",
+    "op": ">=",
+    "value": 15
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.007,
+  "rationale": "Fatigue and frustration accumulate in beginners across many games."
+ },
+ {
+  "statement": "Games played against 2400+ opponents by 2000-2400 players outperform Elo expectation modestly less",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "2000-2400"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "opp_rating_band",
+    "op": "==",
+    "value": "2400+"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.01,
+  "rationale": "Elo compression/inflation among top players may make underdogs perform below expectation versus elite opposition."
+ },
+ {
+  "statement": "In arenas, players with a losing streak of 2+ underperform relative to their other games",
+  "subset": [
+   {
+    "feature": "event_type",
+    "op": "==",
+    "value": "tournament"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "streak",
+    "op": "<=",
+    "value": -2
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.01,
+  "rationale": "Arena tilt: losing in tournaments produces chasing and rushed play, plus pairing with strong opponents."
+ },
+ {
+  "statement": "Among 1200-1600 players, games in 5+0 as Black after a loss underperform",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1200-1600"
+   },
+   {
+    "feature": "color",
+    "op": "==",
+    "value": "black"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "prev_result",
+    "op": "==",
+    "value": "loss"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.008,
+  "rationale": "Tilt and colour disadvantage compound; negative emotion after a loss hurts more with the harder colour."
+ },
+ {
+  "statement": "Weekday evening games (18-22 UTC) on Fri outperform the player's other games",
+  "subset": [
+   {
+    "feature": "weekday",
+    "op": "==",
+    "value": "Fri"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "hour_utc",
+    "op": "between",
+    "value": [
+     18,
+     22
+    ]
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "two-sided",
+  "min_effect": 0.005,
+  "rationale": "Relaxed leisure play at the weekend start may differ from usual play; no strong prior on direction."
+ },
+ {
+  "statement": "Among 1600-2000 players, 3+2 games with increment outperform 3+0 vs their other games",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1600-2000"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "time_control",
+    "op": "in",
+    "value": [
+     "300+3",
+     "180+2"
+    ]
+   }
+  ],
+  "comparison": {
+   "condition": [
+    {
+     "feature": "time_control",
+     "op": "in",
+     "value": [
+      "180+0",
+      "300+0"
+     ]
+    }
+   ]
+  },
+  "outcome": "residual",
+  "direction": "two-sided",
+  "min_effect": 0.005,
+  "rationale": "Increment reduces flagging and could change who benefits; ratings are pooled across controls so residuals may differ."
+ },
+ {
+  "statement": "Among 1200-1600 players, D-family openings (queen's pawn) outperform their other games",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1200-1600"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "eco_family",
+    "op": "==",
+    "value": "D"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "greater",
+  "min_effect": 0.005,
+  "rationale": "Solid d4 openings are more theory-based; players who choose them tend to play structured chess, getting more reliable results."
+ },
+ {
+  "statement": "Among 2000-2400 players, A-family flank openings underperform",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "2000-2400"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "eco_family",
+    "op": "==",
+    "value": "A"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.005,
+  "rationale": "Offbeat openings may be less accurate against well-prepared opposition at high level."
+ },
+ {
+  "statement": "Rapid replays after a draw (<=3 minutes since previous start) differ from the player's other games",
+  "subset": [
+   {
+    "feature": "prev_result",
+    "op": "==",
+    "value": "draw"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "minutes_since_prev_game",
+    "op": "<=",
+    "value": 3
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "two-sided",
+  "min_effect": 0.01,
+  "rationale": "Quick draws may reflect agreed short games; effect on the next game is unclear."
+ },
+ {
+  "statement": "Among 1600-2000 players, previous abandoned or time-forfeit wins lead to overconfidence",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1600-2000"
+   },
+   {
+    "feature": "prev_result",
+    "op": "==",
+    "value": "win"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "prev_termination",
+    "op": "==",
+    "value": "Time forfeit"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.005,
+  "rationale": "Winning on time may indicate lucky wins in lost positions, leaving the player with false confidence."
+ },
+ {
+  "statement": "Late-night (UTC 22-23) games among 1200-1600 players differ from daytime",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1200-1600"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "hour_utc",
+    "op": "between",
+    "value": [
+     22,
+     23
+    ]
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.005,
+  "rationale": "Late evening fatigue and alcohol/tiredness may lower play quality."
+ },
+ {
+  "statement": "Among 2400+ players, favourites facing a lower-rated opponent (-diff 100+) in a session beyond game 10 underperform",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "2400+"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "elo_diff",
+    "op": ">=",
+    "value": 100
+   },
+   {
+    "feature": "session_index",
+    "op": ">=",
+    "value": 10
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.01,
+  "rationale": "Elite players on long sessions may grind low-rated opponents carelessly or with premoves, risking upsets."
+ },
+ {
+  "statement": "Winning streak of 1 combined with a quick next game (<=5 min) in 1600-2000 band outperforms",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1600-2000"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "streak",
+    "op": "between",
+    "value": [
+     1,
+     2
+    ]
+   },
+   {
+    "feature": "minutes_since_prev_game",
+    "op": "<=",
+    "value": 5
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "greater",
+  "min_effect": 0.005,
+  "rationale": "Flow state: players continuing quickly while winning stay engaged and perform well."
+ },
+ {
+  "statement": "Second game of a session after a loss underperforms among <1200 players",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "<1200"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "session_index",
+    "op": "==",
+    "value": 2
+   },
+   {
+    "feature": "prev_result",
+    "op": "==",
+    "value": "loss"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "less",
+  "min_effect": 0.008,
+  "rationale": "Immediate frustration from an opening loss leads to poorer follow-up play among beginners."
+ },
+ {
+  "statement": "Sunday games in 1200-1600 band as White outperform",
+  "subset": [
+   {
+    "feature": "rating_band",
+    "op": "==",
+    "value": "1200-1600"
+   },
+   {
+    "feature": "color",
+    "op": "==",
+    "value": "white"
+   }
+  ],
+  "condition": [
+   {
+    "feature": "weekday",
+    "op": "==",
+    "value": "Sun"
+   }
+  ],
+  "comparison": "rest_of_subset",
+  "outcome": "residual",
+  "direction": "two-sided",
+  "min_effect": 0.005,
+  "rationale": "Weekend casual play may weaken the opposition's quality relative to ratings; no strong prior."
+ }
+]

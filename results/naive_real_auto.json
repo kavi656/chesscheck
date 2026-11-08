@@ -1,0 +1,155 @@
+{
+  "data": "real",
+  "refiner": "auto",
+  "runs": [
+    {
+      "seed": 0,
+      "n_tested": 116,
+      "n_discoveries": 14,
+      "fate": [
+        {
+          "id": "H0001",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game",
+          "naive_p": 4.0240704333257363e-38,
+          "naive_effect": -0.006703630078974097,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0076 [-0.0094, -0.0059], p=1.1e-17"
+        },
+        {
+          "id": "H0002",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand)",
+          "naive_p": 3.1309541428912686e-43,
+          "naive_effect": 0.007889627840776963,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "vault",
+          "reason": "vault effect=0.0039, p=7.33e-05"
+        },
+        {
+          "id": "H0004",
+          "statement": "Players on a 3+ game losing streak underperform their rating",
+          "naive_p": 1.6972702713679363e-46,
+          "naive_effect": -0.008415305133766118,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0060 [-0.0080, -0.0039], p=7.3e-09"
+        },
+        {
+          "id": "H0006",
+          "statement": "Players outperform their rating as White",
+          "naive_p": 0.0,
+          "naive_effect": 0.034048342804378726,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0348 [0.0333, 0.0364], p=0"
+        },
+        {
+          "id": "H0009",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform",
+          "naive_p": 8.967080228633616e-24,
+          "naive_effect": 0.010054054019574423,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0072 [0.0038, 0.0107], p=1.8e-05"
+        },
+        {
+          "id": "H0010",
+          "statement": "Among 2000+ players, playing White helps more than average",
+          "naive_p": 6.79192922556663e-254,
+          "naive_effect": 0.039240413763641055,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0411 [0.0374, 0.0449], p=5.3e-102"
+        },
+        {
+          "id": "H0012",
+          "statement": "Players perform worse in 3+0 than in 5+0",
+          "naive_p": 2.2580592897025986e-07,
+          "naive_effect": -0.0009471551558139715,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0009 < min_effect=0.005"
+        },
+        {
+          "id": "H0013",
+          "statement": "First game of the day underperforms (cold start)",
+          "naive_p": 4.715631434105154e-05,
+          "naive_effect": -0.0022859514693519714,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0023 < min_effect=0.005"
+        },
+        {
+          "id": "H0015",
+          "statement": "After losing on time, players underperform in the next game",
+          "naive_p": 1.496391249257481e-19,
+          "naive_effect": -0.004992417148915597,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0050 < min_effect=0.005"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 4.0682628575242616e-07,
+          "naive_effect": 0.004080240991259551,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0041 < min_effect=0.005"
+        },
+        {
+          "id": "H0032",
+          "statement": "Late-session games (10th+ game of a session) underperform [direction flipped]",
+          "naive_p": 5.446363288332055e-15,
+          "naive_effect": 0.0035176983793227872,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0035 < min_effect=0.005"
+        },
+        {
+          "id": "H0041",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [direction flipped]",
+          "naive_p": 0.0,
+          "naive_effect": -0.09164341461418642,
+          "round": 1,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0820 [-0.0855, -0.0786], p=0"
+        },
+        {
+          "id": "H0053",
+          "statement": "Arena tournament games deviate from pool games [only <1200]",
+          "naive_p": 4.1399076002911286e-217,
+          "naive_effect": 0.06419531587350841,
+          "round": 1,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0336 [0.0266, 0.0407], p=9.9e-21"
+        },
+        {
+          "id": "H0071",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [direction flipped]",
+          "naive_p": 0.0,
+          "naive_effect": 0.09238352976395263,
+          "round": 1,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0800 [0.0765, 0.0835], p=0"
+        }
+      ]
+    }
+  ],
+  "mean_naive_discoveries": 14.0,
+  "mean_honest_real": 8.0
+}

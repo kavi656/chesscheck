@@ -1,0 +1,1458 @@
+{
+  "data": "null",
+  "refiner": "auto",
+  "runs": [
+    {
+      "seed": 0,
+      "n_tested": 333,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 1.215964645549596e-08,
+          "naive_effect": 0.004531830253497118,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0045 < min_effect=0.005"
+        },
+        {
+          "id": "H0039",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 2400+]",
+          "naive_p": 0.04484449590653211,
+          "naive_effect": 0.006085860427368006,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0448 fails BH (q=0.05, m=167, threshold=1.22e-08)"
+        },
+        {
+          "id": "H0046",
+          "statement": "Players on a 3+ game losing streak underperform their rating [direction flipped]",
+          "naive_p": 0.01646779624891348,
+          "naive_effect": 0.0012365264644786159,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0165 fails BH (q=0.05, m=167, threshold=1.22e-08)"
+        },
+        {
+          "id": "H0080",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 2000-2400]",
+          "naive_p": 0.009721611920489872,
+          "naive_effect": 0.007098438721523987,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00972 fails BH (q=0.05, m=167, threshold=1.22e-08)"
+        },
+        {
+          "id": "H0144",
+          "statement": "Late-session games (10th+ game of a session) underperform [direction flipped] [threshold 10 -> 5]",
+          "naive_p": 0.019082085935468472,
+          "naive_effect": 0.0007460764386930498,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0191 fails BH (q=0.05, m=167, threshold=1.22e-08)"
+        },
+        {
+          "id": "H0153",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [threshold 200 -> 100] [threshold 100 -> 50]",
+          "naive_p": 0.029053553109130083,
+          "naive_effect": 0.0008705807191814022,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0291 fails BH (q=0.05, m=167, threshold=1.22e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "n_tested": 313,
+      "n_discoveries": 8,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 6.826836301723894e-09,
+          "naive_effect": 0.0046061629427495065,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0046 < min_effect=0.005"
+        },
+        {
+          "id": "H0023",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only 2400+]",
+          "naive_p": 0.006368262335832732,
+          "naive_effect": -0.013055661983551568,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00637 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0038",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 2000-2400]",
+          "naive_p": 0.0025315955354801327,
+          "naive_effect": 0.002767728050939177,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00253 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0067",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [threshold 200 -> 100]",
+          "naive_p": 0.04409643700930589,
+          "naive_effect": 0.0011415563738092064,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0441 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0090",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings [only 2000-2400]",
+          "naive_p": 0.03271587774391385,
+          "naive_effect": 0.002050460318127478,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0327 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0140",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [direction flipped] [only 1200-1600]",
+          "naive_p": 0.022665798045251578,
+          "naive_effect": -0.0037436312553665568,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0227 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0147",
+          "statement": "Among 2000+ players, playing White helps more than average [direction flipped] [only 1200-1600]",
+          "naive_p": 0.048166700994972625,
+          "naive_effect": -0.001038052966310092,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0482 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        },
+        {
+          "id": "H0156",
+          "statement": "After losing on time, players underperform in the next game [direction flipped] [only 2000-2400]",
+          "naive_p": 0.0030490461560176425,
+          "naive_effect": 0.0038959665365137235,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00305 fails BH (q=0.05, m=160, threshold=6.83e-09)"
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "n_tested": 329,
+      "n_discoveries": 7,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 2.015220921477827e-07,
+          "naive_effect": 0.004131839831295299,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0041 < min_effect=0.005"
+        },
+        {
+          "id": "H0020",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only 1200-1600]",
+          "naive_p": 0.0072086701874666615,
+          "naive_effect": -0.0022320664512284205,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00721 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        },
+        {
+          "id": "H0037",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 1600-2000]",
+          "naive_p": 0.04442989810836744,
+          "naive_effect": -0.0011007855071296273,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0444 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        },
+        {
+          "id": "H0085",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [direction flipped]",
+          "naive_p": 0.0344207434138771,
+          "naive_effect": -0.0019465726624833166,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0344 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        },
+        {
+          "id": "H0090",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings [only 2000-2400]",
+          "naive_p": 0.04699846731278377,
+          "naive_effect": -0.0019062991721884594,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.047 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        },
+        {
+          "id": "H0131",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [direction flipped] [only 1600-2000]",
+          "naive_p": 0.01540707625903717,
+          "naive_effect": -0.001975120961601843,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0154 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        },
+        {
+          "id": "H0172",
+          "statement": "Late-session games (10th+ game of a session) underperform [only 2000-2400] [threshold 10 -> 20] [threshold 20 -> 60]",
+          "naive_p": 0.025974402381303854,
+          "naive_effect": -0.009910509835147695,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.026 fails BH (q=0.05, m=168, threshold=2.02e-07)"
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "n_tested": 345,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 5.170038151724009e-09,
+          "naive_effect": 0.004648623752724688,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0046 < min_effect=0.005"
+        },
+        {
+          "id": "H0031",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 2000-2400]",
+          "naive_p": 0.02315300945021666,
+          "naive_effect": 0.0027486334174066803,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0232 fails BH (q=0.05, m=171, threshold=5.17e-09)"
+        },
+        {
+          "id": "H0039",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 2400+]",
+          "naive_p": 0.04369572874537588,
+          "naive_effect": -0.006145477047912438,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0437 fails BH (q=0.05, m=171, threshold=5.17e-09)"
+        },
+        {
+          "id": "H0131",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [direction flipped] [only 1600-2000]",
+          "naive_p": 0.029207102511036264,
+          "naive_effect": 0.001500468986506201,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0292 fails BH (q=0.05, m=171, threshold=5.17e-09)"
+        },
+        {
+          "id": "H0137",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only <1200] [threshold -3 -> -2]",
+          "naive_p": 0.025904117721992782,
+          "naive_effect": -0.002279433788067302,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0259 fails BH (q=0.05, m=171, threshold=5.17e-09)"
+        },
+        {
+          "id": "H0148",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [threshold 200 -> 600] [only 2400+]",
+          "naive_p": 0.04910131663761252,
+          "naive_effect": 0.013685264207691276,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0491 fails BH (q=0.05, m=171, threshold=5.17e-09)"
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "n_tested": 345,
+      "n_discoveries": 5,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 1.0339261809452615e-07,
+          "naive_effect": 0.004231204075378935,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0042 < min_effect=0.005"
+        },
+        {
+          "id": "H0078",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 1200-1600]",
+          "naive_p": 0.03539758248080821,
+          "naive_effect": 0.0033857559450395465,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0354 fails BH (q=0.05, m=170, threshold=1.03e-07)"
+        },
+        {
+          "id": "H0099",
+          "statement": "First game of the day underperforms (cold start) [only 1200-1600]",
+          "naive_p": 0.02797326711374515,
+          "naive_effect": -0.00196770852595716,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.028 fails BH (q=0.05, m=170, threshold=1.03e-07)"
+        },
+        {
+          "id": "H0113",
+          "statement": "After losing on time, players underperform in the next game [only 2400+]",
+          "naive_p": 0.03913814041858422,
+          "naive_effect": -0.009470150060050576,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0391 fails BH (q=0.05, m=170, threshold=1.03e-07)"
+        },
+        {
+          "id": "H0138",
+          "statement": "Players on a 3+ game losing streak underperform their rating [direction flipped] [only 2000-2400]",
+          "naive_p": 0.040009584375307015,
+          "naive_effect": 0.0028856103618090747,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.04 fails BH (q=0.05, m=170, threshold=1.03e-07)"
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "n_tested": 321,
+      "n_discoveries": 7,
+      "fate": [
+        {
+          "id": "H0013",
+          "statement": "First game of the day underperforms (cold start)",
+          "naive_p": 0.003762657709088612,
+          "naive_effect": -0.0016121455102002438,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00376 fails BH (q=0.05, m=158, threshold=0.000131)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 2.6890445875099557e-08,
+          "naive_effect": 0.004422536856332279,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0044 < min_effect=0.005"
+        },
+        {
+          "id": "H0032",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 2400+]",
+          "naive_p": 0.00013129846861156932,
+          "naive_effect": 0.016149339910969986,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "validate",
+          "reason": "validate effect=-0.0040, p=0.753"
+        },
+        {
+          "id": "H0085",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [direction flipped]",
+          "naive_p": 0.03527757057130012,
+          "naive_effect": -0.0019376950151053518,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0353 fails BH (q=0.05, m=158, threshold=0.000131)"
+        },
+        {
+          "id": "H0090",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings [only 2000-2400]",
+          "naive_p": 0.024659227436387394,
+          "naive_effect": -0.002152627218275157,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0247 fails BH (q=0.05, m=158, threshold=0.000131)"
+        },
+        {
+          "id": "H0156",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [direction flipped] [threshold -200 -> -600]",
+          "naive_p": 0.03675750843737456,
+          "naive_effect": 0.00536861650897256,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0368 fails BH (q=0.05, m=158, threshold=0.000131)"
+        },
+        {
+          "id": "H0162",
+          "statement": "Players on a 3+ game losing streak underperform their rating [direction flipped] [threshold -3 -> -2] [threshold -2 -> -1]",
+          "naive_p": 0.008765164513787069,
+          "naive_effect": 0.0008361895246581745,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00877 fails BH (q=0.05, m=158, threshold=0.000131)"
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "n_tested": 325,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 1.9531547844940958e-08,
+          "naive_effect": 0.004474606996201817,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0045 < min_effect=0.005"
+        },
+        {
+          "id": "H0021",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only 1600-2000]",
+          "naive_p": 0.010334028658398274,
+          "naive_effect": -0.0018345075247497547,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0103 fails BH (q=0.05, m=153, threshold=1.95e-08)"
+        },
+        {
+          "id": "H0030",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 1600-2000]",
+          "naive_p": 0.031177839906102657,
+          "naive_effect": 0.0016884071815695175,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0312 fails BH (q=0.05, m=153, threshold=1.95e-08)"
+        },
+        {
+          "id": "H0070",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [direction flipped]",
+          "naive_p": 0.024542962425251686,
+          "naive_effect": -0.0021387202932331003,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0245 fails BH (q=0.05, m=153, threshold=1.95e-08)"
+        },
+        {
+          "id": "H0132",
+          "statement": "Late-session games (10th+ game of a session) underperform [threshold 10 -> 5] [only 1200-1600]",
+          "naive_p": 0.03442061025883359,
+          "naive_effect": -0.001217123725945941,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0344 fails BH (q=0.05, m=153, threshold=1.95e-08)"
+        },
+        {
+          "id": "H0143",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 1600-2000] [threshold 2 -> 6]",
+          "naive_p": 0.04241293148857197,
+          "naive_effect": 0.001201450125116002,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0424 fails BH (q=0.05, m=153, threshold=1.95e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "n_tested": 371,
+      "n_discoveries": 3,
+      "fate": [
+        {
+          "id": "H0009",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform",
+          "naive_p": 0.031513416605680564,
+          "naive_effect": 0.0019913013168786063,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0315 fails BH (q=0.05, m=174, threshold=6.32e-10)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 6.316657557377551e-10,
+          "naive_effect": 0.004907795154757887,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0049 < min_effect=0.005"
+        },
+        {
+          "id": "H0178",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [only 1200-1600] [threshold -200 -> -100] [threshold -100 -> -50]",
+          "naive_p": 0.03284769292395049,
+          "naive_effect": -0.0015553139953848741,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0328 fails BH (q=0.05, m=174, threshold=6.32e-10)"
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "n_tested": 349,
+      "n_discoveries": 5,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 9.996695023453362e-09,
+          "naive_effect": 0.00455925974306539,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0046 < min_effect=0.005"
+        },
+        {
+          "id": "H0029",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 1200-1600]",
+          "naive_p": 0.01724933268779467,
+          "naive_effect": 0.0022284954830610925,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0172 fails BH (q=0.05, m=159, threshold=1e-08)"
+        },
+        {
+          "id": "H0042",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only 1600-2000]",
+          "naive_p": 0.04464715470786231,
+          "naive_effect": -0.0015529632532495193,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0446 fails BH (q=0.05, m=159, threshold=1e-08)"
+        },
+        {
+          "id": "H0134",
+          "statement": "Late-session games (10th+ game of a session) underperform [only 2000-2400] [threshold 10 -> 20]",
+          "naive_p": 0.041872521920043544,
+          "naive_effect": -0.002834371757307482,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0419 fails BH (q=0.05, m=159, threshold=1e-08)"
+        },
+        {
+          "id": "H0150",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [threshold 2 -> 6] [threshold 6 -> 18]",
+          "naive_p": 0.02290059524440626,
+          "naive_effect": 0.0007345238124088092,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0229 fails BH (q=0.05, m=159, threshold=1e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "n_tested": 307,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0002",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand)",
+          "naive_p": 0.019590830833487092,
+          "naive_effect": 0.0011848427313981113,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0196 fails BH (q=0.05, m=150, threshold=2.7e-08)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 2.699581570849834e-08,
+          "naive_effect": 0.004402937479554971,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0044 < min_effect=0.005"
+        },
+        {
+          "id": "H0027",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [direction flipped]",
+          "naive_p": 0.03347531507147155,
+          "naive_effect": 0.0009351120070829268,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0335 fails BH (q=0.05, m=150, threshold=2.7e-08)"
+        },
+        {
+          "id": "H0035",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only 1600-2000]",
+          "naive_p": 0.042368297586786736,
+          "naive_effect": -0.0015763864499982086,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0424 fails BH (q=0.05, m=150, threshold=2.7e-08)"
+        },
+        {
+          "id": "H0066",
+          "statement": "Games played 00:00-05:59 UTC underperform the rest of the day [only 1600-2000]",
+          "naive_p": 0.026388498145264443,
+          "naive_effect": -0.0014254336723007598,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0264 fails BH (q=0.05, m=150, threshold=2.7e-08)"
+        },
+        {
+          "id": "H0121",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [direction flipped]",
+          "naive_p": 0.002931540912357317,
+          "naive_effect": 0.0030706596788524143,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00293 fails BH (q=0.05, m=150, threshold=2.7e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "n_tested": 246,
+      "n_discoveries": 11,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 1.3637146454514358e-09,
+          "naive_effect": 0.004806488059813207,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0048 < min_effect=0.005"
+        },
+        {
+          "id": "H0031",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 2000-2400]",
+          "naive_p": 0.028764596449785733,
+          "naive_effect": 0.0026137402397561076,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0288 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0038",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 2000-2400]",
+          "naive_p": 0.049288005912452665,
+          "naive_effect": -0.00179869186925483,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0493 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0047",
+          "statement": "Late-session games (10th+ game of a session) underperform [only <1200]",
+          "naive_p": 0.01632998220730462,
+          "naive_effect": -0.003231038883574745,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0163 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0060",
+          "statement": "Players outperform their rating as White [only 2400+]",
+          "naive_p": 0.046875451701339506,
+          "naive_effect": 0.00508457453961394,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0469 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0075",
+          "statement": "Games played 00:00-05:59 UTC underperform the rest of the day [only 2400+]",
+          "naive_p": 0.036172561812361344,
+          "naive_effect": -0.008168378203264581,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0362 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0083",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [threshold 2 -> 4]",
+          "naive_p": 0.04487754355895953,
+          "naive_effect": 0.0010159851046580737,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0449 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0088",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings [only 1200-1600]",
+          "naive_p": 0.018724620579697357,
+          "naive_effect": -0.0016391244790577766,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0187 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0098",
+          "statement": "First game of the day underperforms (cold start) [only <1200]",
+          "naive_p": 0.03498861961205813,
+          "naive_effect": -0.002787625422613466,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.035 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0132",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [threshold 5 -> 15] [only 2000-2400]",
+          "naive_p": 0.03188899193535032,
+          "naive_effect": -0.00180300022946524,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0319 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        },
+        {
+          "id": "H0140",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [only 1200-1600] [threshold 200 -> 100]",
+          "naive_p": 0.015207461038485607,
+          "naive_effect": 0.0035364092183063573,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0152 fails BH (q=0.05, m=156, threshold=1.36e-09)"
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "n_tested": 249,
+      "n_discoveries": 11,
+      "fate": [
+        {
+          "id": "H0005",
+          "statement": "Late-session games (10th+ game of a session) underperform",
+          "naive_p": 0.02948448476786317,
+          "naive_effect": -0.0008852511479985162,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0295 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 9.278634321803895e-08,
+          "naive_effect": 0.004231605295206002,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0042 < min_effect=0.005"
+        },
+        {
+          "id": "H0034",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [direction flipped]",
+          "naive_p": 0.03051948034661377,
+          "naive_effect": -0.0010772646019831745,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0305 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0037",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 1600-2000]",
+          "naive_p": 0.04872569564520887,
+          "naive_effect": 0.0010829978316832193,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0487 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0059",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [threshold 200 -> 400]",
+          "naive_p": 0.03215169923638843,
+          "naive_effect": 0.003201813899502511,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0322 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0067",
+          "statement": "Games played 00:00-05:59 UTC underperform the rest of the day [direction flipped]",
+          "naive_p": 0.0131911278988061,
+          "naive_effect": 0.0010430509801127653,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0132 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0071",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 2000-2400]",
+          "naive_p": 0.014716776481523712,
+          "naive_effect": 0.006626037887758352,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0147 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0082",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings [only 2400+]",
+          "naive_p": 0.0472588809361864,
+          "naive_effect": -0.006541921079645893,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0473 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0123",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [direction flipped] [only 2000-2400]",
+          "naive_p": 0.040769737405399,
+          "naive_effect": 0.0024146542415975306,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0408 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0128",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only <1200] [threshold -3 -> -2]",
+          "naive_p": 0.04149306037084063,
+          "naive_effect": -0.0020315918889784387,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0415 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        },
+        {
+          "id": "H0137",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [direction flipped] [only 2000-2400]",
+          "naive_p": 0.04608980621121424,
+          "naive_effect": 0.009048647955217341,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0461 fails BH (q=0.05, m=135, threshold=9.28e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "n_tested": 311,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 1.740196454428939e-08,
+          "naive_effect": 0.004481707994535944,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0045 < min_effect=0.005"
+        },
+        {
+          "id": "H0019",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only <1200]",
+          "naive_p": 0.04197648372511354,
+          "naive_effect": -0.0024615328691050833,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.042 fails BH (q=0.05, m=152, threshold=1.74e-08)"
+        },
+        {
+          "id": "H0031",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 2000-2400]",
+          "naive_p": 0.01806787502055525,
+          "naive_effect": 0.002873666286958649,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0181 fails BH (q=0.05, m=152, threshold=1.74e-08)"
+        },
+        {
+          "id": "H0063",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [only 1200-1600]",
+          "naive_p": 0.037449178731831734,
+          "naive_effect": 0.005701931296673215,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0374 fails BH (q=0.05, m=152, threshold=1.74e-08)"
+        },
+        {
+          "id": "H0101",
+          "statement": "First game of the day underperforms (cold start) [only 2000-2400]",
+          "naive_p": 0.014072428128828642,
+          "naive_effect": -0.0038133645635234645,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0141 fails BH (q=0.05, m=152, threshold=1.74e-08)"
+        },
+        {
+          "id": "H0122",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [only 1600-2000]",
+          "naive_p": 0.0031418381863947287,
+          "naive_effect": -0.005034569712482997,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00314 fails BH (q=0.05, m=152, threshold=1.74e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "n_tested": 347,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 6.952050302648824e-09,
+          "naive_effect": 0.004600555669809876,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0046 < min_effect=0.005"
+        },
+        {
+          "id": "H0043",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only 2000-2400]",
+          "naive_p": 0.028301125617569343,
+          "naive_effect": -0.003129936913958064,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0283 fails BH (q=0.05, m=179, threshold=6.95e-09)"
+        },
+        {
+          "id": "H0072",
+          "statement": "Games played 00:00-05:59 UTC underperform the rest of the day [only 1200-1600]",
+          "naive_p": 0.029647566158713213,
+          "naive_effect": -0.001593201828297458,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0296 fails BH (q=0.05, m=179, threshold=6.95e-09)"
+        },
+        {
+          "id": "H0101",
+          "statement": "First game of the day underperforms (cold start) [only 2000-2400]",
+          "naive_p": 0.027998490105085753,
+          "naive_effect": -0.0033082106854003053,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.028 fails BH (q=0.05, m=179, threshold=6.95e-09)"
+        },
+        {
+          "id": "H0153",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [direction flipped] [threshold 200 -> 100]",
+          "naive_p": 0.022453361694989345,
+          "naive_effect": -0.0013412838917715878,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0225 fails BH (q=0.05, m=179, threshold=6.95e-09)"
+        },
+        {
+          "id": "H0183",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [direction flipped] [only 1600-2000] [threshold 2 -> 1]",
+          "naive_p": 0.017399576773479176,
+          "naive_effect": -0.006786438098106571,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0174 fails BH (q=0.05, m=179, threshold=6.95e-09)"
+        }
+      ]
+    },
+    {
+      "seed": 14,
+      "n_tested": 375,
+      "n_discoveries": 3,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 9.520454621618586e-08,
+          "naive_effect": 0.004236455207359687,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0042 < min_effect=0.005"
+        },
+        {
+          "id": "H0042",
+          "statement": "Players on a 3+ game losing streak underperform their rating [only 1600-2000]",
+          "naive_p": 0.003093251962235169,
+          "naive_effect": -0.0025119332807662102,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00309 fails BH (q=0.05, m=162, threshold=9.52e-08)"
+        },
+        {
+          "id": "H0166",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [threshold -200 -> -600] [threshold -600 -> -1200]",
+          "naive_p": 0.020461814936758443,
+          "naive_effect": -0.03070604261861366,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0205 fails BH (q=0.05, m=162, threshold=9.52e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "n_tested": 291,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 4.262676388325117e-08,
+          "naive_effect": 0.004351314120639499,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0044 < min_effect=0.005"
+        },
+        {
+          "id": "H0018",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation",
+          "naive_p": 0.004776520685302749,
+          "naive_effect": -0.002886567798104012,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00478 fails BH (q=0.05, m=133, threshold=4.26e-08)"
+        },
+        {
+          "id": "H0034",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [direction flipped]",
+          "naive_p": 0.005669296092348465,
+          "naive_effect": -0.0014507960350707927,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00567 fails BH (q=0.05, m=133, threshold=4.26e-08)"
+        },
+        {
+          "id": "H0046",
+          "statement": "Players on a 3+ game losing streak underperform their rating [direction flipped]",
+          "naive_p": 0.02815552156127916,
+          "naive_effect": 0.0011036200939229682,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0282 fails BH (q=0.05, m=133, threshold=4.26e-08)"
+        },
+        {
+          "id": "H0060",
+          "statement": "Players outperform their rating as White [only 2400+]",
+          "naive_p": 0.02458628402909741,
+          "naive_effect": 0.0059707857546261005,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0246 fails BH (q=0.05, m=133, threshold=4.26e-08)"
+        },
+        {
+          "id": "H0080",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 2000-2400]",
+          "naive_p": 0.04891506724890208,
+          "naive_effect": 0.005007435265483356,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0489 fails BH (q=0.05, m=133, threshold=4.26e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 16,
+      "n_tested": 267,
+      "n_discoveries": 10,
+      "fate": [
+        {
+          "id": "H0008",
+          "statement": "Games played 00:00-05:59 UTC underperform the rest of the day",
+          "naive_p": 0.02428733399543554,
+          "naive_effect": -0.0009267673022071251,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0243 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 2.6922591603992762e-08,
+          "naive_effect": 0.004427635925062036,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0044 < min_effect=0.005"
+        },
+        {
+          "id": "H0031",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand) [only 2000-2400]",
+          "naive_p": 0.024668085871509298,
+          "naive_effect": 0.002691102854893499,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0247 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0048",
+          "statement": "Late-session games (10th+ game of a session) underperform [only 1200-1600]",
+          "naive_p": 0.045292236019984236,
+          "naive_effect": -0.0015864432653408139,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0453 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0108",
+          "statement": "After losing on time, players underperform in the next game [direction flipped]",
+          "naive_p": 0.01459865313838477,
+          "naive_effect": 0.0011992218169140948,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0146 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0122",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [direction flipped]",
+          "naive_p": 0.015824120402455982,
+          "naive_effect": 0.0023919016806379038,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0158 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0125",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [direction flipped] [only 1600-2000]",
+          "naive_p": 0.044159491440929476,
+          "naive_effect": 0.0013511924643586353,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0442 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0134",
+          "statement": "Players outperform their rating as White [direction flipped] [only 1200-1600]",
+          "naive_p": 0.020156411297123283,
+          "naive_effect": -0.0012793464217652176,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0202 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0140",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation [direction flipped] [only 1600-2000]",
+          "naive_p": 0.012187056508930736,
+          "naive_effect": -0.0036758170765140985,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0122 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        },
+        {
+          "id": "H0147",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [only 2000-2400] [threshold 2 -> 4]",
+          "naive_p": 0.026591831688227353,
+          "naive_effect": 0.002996799898512217,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0266 fails BH (q=0.05, m=152, threshold=2.69e-08)"
+        }
+      ]
+    },
+    {
+      "seed": 17,
+      "n_tested": 261,
+      "n_discoveries": 8,
+      "fate": [
+        {
+          "id": "H0002",
+          "statement": "Players on a 3+ game winning streak outperform their rating (hot hand)",
+          "naive_p": 0.0024387037417970014,
+          "naive_effect": 0.0016146132036802343,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00244 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0005",
+          "statement": "Late-session games (10th+ game of a session) underperform",
+          "naive_p": 0.025496684308556502,
+          "naive_effect": -0.0009151251938713762,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0255 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0007",
+          "statement": "Big rating favourites (+200 or more) outperform the Elo expectation",
+          "naive_p": 0.013066687203433482,
+          "naive_effect": 0.0024116842927075395,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0131 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0011",
+          "statement": "Semi-open games (ECO B) favour the player vs other openings",
+          "naive_p": 0.04406351127497058,
+          "naive_effect": -0.0007644073439387133,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0441 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 5.474522996521918e-07,
+          "naive_effect": 0.0039756598118199085,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0040 < min_effect=0.005"
+        },
+        {
+          "id": "H0072",
+          "statement": "First game of the day underperforms (cold start) [only 2400+]",
+          "naive_p": 0.01615530039342064,
+          "naive_effect": -0.01212622061477014,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0162 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0080",
+          "statement": "After losing on time, players underperform in the next game [only 1200-1600]",
+          "naive_p": 0.0345375475264049,
+          "naive_effect": -0.0018360558785880368,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0345 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        },
+        {
+          "id": "H0101",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only 1200-1600] [threshold 5 -> 15]",
+          "naive_p": 0.040454356643437606,
+          "naive_effect": -0.0011707752013002547,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0405 fails BH (q=0.05, m=120, threshold=5.47e-07)"
+        }
+      ]
+    },
+    {
+      "seed": 18,
+      "n_tested": 341,
+      "n_discoveries": 5,
+      "fate": [
+        {
+          "id": "H0004",
+          "statement": "Players on a 3+ game losing streak underperform their rating",
+          "naive_p": 0.02800298456634512,
+          "naive_effect": -0.0011037780699606648,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.028 fails BH (q=0.05, m=155, threshold=4.59e-09)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 4.588972719626885e-09,
+          "naive_effect": 0.004655086519426821,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0047 < min_effect=0.005"
+        },
+        {
+          "id": "H0036",
+          "statement": "Games starting on an odd minute differ from games starting on an even minute [only 1200-1600]",
+          "naive_p": 0.03622821158818087,
+          "naive_effect": -0.0013078195522032232,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0362 fails BH (q=0.05, m=155, threshold=4.59e-09)"
+        },
+        {
+          "id": "H0102",
+          "statement": "After losing on time, players underperform in the next game [only <1200]",
+          "naive_p": 0.024472085114046537,
+          "naive_effect": -0.0030183170059691266,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0245 fails BH (q=0.05, m=155, threshold=4.59e-09)"
+        },
+        {
+          "id": "H0129",
+          "statement": "Late-session games (10th+ game of a session) underperform [threshold 10 -> 20] [only 1200-1600]",
+          "naive_p": 0.04966577548705487,
+          "naive_effect": -0.0027894150510113054,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0497 fails BH (q=0.05, m=155, threshold=4.59e-09)"
+        }
+      ]
+    },
+    {
+      "seed": 19,
+      "n_tested": 323,
+      "n_discoveries": 6,
+      "fate": [
+        {
+          "id": "H0004",
+          "statement": "Players on a 3+ game losing streak underperform their rating",
+          "naive_p": 0.046863569808581765,
+          "naive_effect": -0.0009671007007247713,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0469 fails BH (q=0.05, m=151, threshold=2.08e-08)"
+        },
+        {
+          "id": "H0016",
+          "statement": "Games that end on time are worse for the player (LEAKY: uses this game's termination)",
+          "naive_p": 2.0816777390695137e-08,
+          "naive_effect": 0.004455140929044513,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0045 < min_effect=0.005"
+        },
+        {
+          "id": "H0077",
+          "statement": "Immediate rematch-speed games (<2 min since previous start) after a win outperform [threshold 2 -> 6]",
+          "naive_p": 0.002270954490339404,
+          "naive_effect": 0.0012765341823289002,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.00227 fails BH (q=0.05, m=151, threshold=2.08e-08)"
+        },
+        {
+          "id": "H0106",
+          "statement": "After losing on time, players underperform in the next game [only 2400+]",
+          "naive_p": 0.04888409615932221,
+          "naive_effect": -0.008855583978548326,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0489 fails BH (q=0.05, m=151, threshold=2.08e-08)"
+        },
+        {
+          "id": "H0123",
+          "statement": "Players who lost their previous game within 5 minutes underperform their rating in the next game [only <1200] [threshold 5 -> 10]",
+          "naive_p": 0.03512586303729821,
+          "naive_effect": -0.001966037560399008,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0351 fails BH (q=0.05, m=151, threshold=2.08e-08)"
+        },
+        {
+          "id": "H0145",
+          "statement": "Underdogs by 200+ underperform even the Elo expectation [threshold -200 -> -400] [only 1200-1600]",
+          "naive_p": 0.03361964567201274,
+          "naive_effect": -0.004695086223429866,
+          "round": 2,
+          "verdict": "LUCKY",
+          "killed_at": "correction",
+          "reason": "explore p=0.0336 fails BH (q=0.05, m=151, threshold=2.08e-08)"
+        }
+      ]
+    }
+  ],
+  "mean_naive_discoveries": 6.55,
+  "mean_honest_real": 0.0
+}

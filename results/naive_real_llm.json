@@ -1,0 +1,205 @@
+{
+  "data": "real",
+  "refiner": "llm",
+  "runs": [
+    {
+      "seed": 0,
+      "n_tested": 29,
+      "n_discoveries": 19,
+      "fate": [
+        {
+          "id": "H0001",
+          "statement": "After 3+ straight losses, players underperform their rating (tilt).",
+          "naive_p": 1.6972702713679363e-46,
+          "naive_effect": -0.008415305133766118,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0084 < min_effect=0.01"
+        },
+        {
+          "id": "H0002",
+          "statement": "After 3+ straight wins, players overperform their rating (hot hand).",
+          "naive_p": 3.1309541428912686e-43,
+          "naive_effect": 0.007889627840776963,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0079 < min_effect=0.01"
+        },
+        {
+          "id": "H0003",
+          "statement": "Rapid-fire games started within 3 minutes after a loss underperform.",
+          "naive_p": 7.801914453662654e-07,
+          "naive_effect": -0.003848470758522163,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0038 < min_effect=0.01"
+        },
+        {
+          "id": "H0004",
+          "statement": "The first game of a session is worse than later games, because the player is not warmed up.",
+          "naive_p": 1.2534620749108175e-71,
+          "naive_effect": -0.007068224024327835,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0071 < min_effect=0.01"
+        },
+        {
+          "id": "H0008",
+          "statement": "White's advantage is larger for 2400+ players than for others.",
+          "naive_p": 1.35106657608059e-42,
+          "naive_effect": 0.05236976029470322,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0513 [0.0388, 0.0637], p=2.9e-16"
+        },
+        {
+          "id": "H0009",
+          "statement": "Players rated 50+ above their opponent underperform the Elo expectation.",
+          "naive_p": 0.0,
+          "naive_effect": -0.04918334951104488,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0484 [-0.0500, -0.0469], p=0"
+        },
+        {
+          "id": "H0010",
+          "statement": "Arena tournament games produce different residuals than pool games for 1600-2000 players.",
+          "naive_p": 2.5220336661856902e-17,
+          "naive_effect": -0.00463005222845289,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0046 < min_effect=0.01"
+        },
+        {
+          "id": "H0012",
+          "statement": "Playing on weekends differs from weekdays for 1200-1600 players.",
+          "naive_p": 4.587102876924048e-09,
+          "naive_effect": -0.004275505781302804,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0043 < min_effect=0.005"
+        },
+        {
+          "id": "H0014",
+          "statement": "After the previous game was abandoned, performance drops.",
+          "naive_p": 0.02245349617805863,
+          "naive_effect": -0.00608762684088291,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0061 < min_effect=0.01"
+        },
+        {
+          "id": "H0015",
+          "statement": "After a loss streak, a cool-off break of 30+ minutes recovers performance relative to immediate continuation.",
+          "naive_p": 0.0005598818240830118,
+          "naive_effect": 0.003153386423294294,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0032 < min_effect=0.015"
+        },
+        {
+          "id": "H0017",
+          "statement": "Black players in the 1600-2000 band score worse with D-family (queen's pawn) openings.",
+          "naive_p": 6.9383846822623165e-37,
+          "naive_effect": -0.014322047837215024,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0111 [-0.0150, -0.0072], p=1.5e-08"
+        },
+        {
+          "id": "H0018",
+          "statement": "After a win against a higher-rated opponent, the next game is overperformed (momentum).",
+          "naive_p": 7.583458199007335e-56,
+          "naive_effect": 0.006563218551384682,
+          "round": 0,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0066 < min_effect=0.01"
+        },
+        {
+          "id": "H0019",
+          "statement": "2000-2400 players do worse than usual when facing opponents rated 2400+.",
+          "naive_p": 2.9078268864103044e-25,
+          "naive_effect": 0.030033908648817713,
+          "round": 0,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0327 [0.0233, 0.0422], p=9.5e-12"
+        },
+        {
+          "id": "H0020",
+          "statement": "Players who lose on time and restart within 5 minutes underperform relative to other post-loss games that ended normally.",
+          "naive_p": 1.6007728231781323e-15,
+          "naive_effect": -0.022963991130002713,
+          "round": 1,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0206 [-0.0306, -0.0106], p=2.8e-05"
+        },
+        {
+          "id": "H0022",
+          "statement": "Mid-to-late session games (index 8+) outperform the opening two games of a session.",
+          "naive_p": 4.217168924657501e-40,
+          "naive_effect": 0.0057096247365720065,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0057 < min_effect=0.007"
+        },
+        {
+          "id": "H0024",
+          "statement": "2000-2400 players in arena tournament games underperform their own pool games.",
+          "naive_p": 2.2636390127900313e-128,
+          "naive_effect": -0.026341306723527785,
+          "round": 1,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=-0.0244 [-0.0276, -0.0212], p=9.6e-51"
+        },
+        {
+          "id": "H0025",
+          "statement": "Late-night UTC (0-5) games on Fri/Sat/Sun overperform the same players' other games, because opponent pools are weaker or more casual relative to rating.",
+          "naive_p": 0.0014487079178630699,
+          "naive_effect": 0.0016595645446346083,
+          "round": 1,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0017 < min_effect=0.005"
+        },
+        {
+          "id": "H0028",
+          "statement": "For players under 1600, the first game of a UTC day after a long break (more than 6 hours since the previous game) underperforms their own later games, with the effect sharper than in the broader first-game-of-day test.",
+          "naive_p": 6.997754842451333e-05,
+          "naive_effect": -0.003569746563255528,
+          "round": 3,
+          "verdict": "LUCKY",
+          "killed_at": "min_effect",
+          "reason": "|effect|=0.0036 < min_effect=0.004"
+        },
+        {
+          "id": "H0029",
+          "statement": "For 2000-2400 players, 180+0 games overperform relative to their 300+0 games, which reverses the earlier flagging-risk hypothesis.",
+          "naive_p": 6.798962567713875e-05,
+          "naive_effect": 0.0026986642850850813,
+          "round": 3,
+          "verdict": "REAL",
+          "killed_at": null,
+          "reason": "vault effect=0.0061 [0.0035, 0.0087], p=2.1e-06"
+        }
+      ]
+    }
+  ],
+  "mean_naive_discoveries": 19.0,
+  "mean_honest_real": 7.0
+}

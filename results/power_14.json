@@ -1,0 +1,32 @@
+{
+  "planted_hypothesis": "After losing on time, players underperform in the next game",
+  "plant_index": 14,
+  "explore_treated_rows": 1039051,
+  "power": {
+    "0.005": {
+      "detected": 2,
+      "seeds": 20,
+      "power": 0.1,
+      "other_real_per_run": 0.0
+    },
+    "0.01": {
+      "detected": 20,
+      "seeds": 20,
+      "power": 1.0,
+      "other_real_per_run": 0.0
+    },
+    "0.02": {
+      "detected": 20,
+      "seeds": 20,
+      "power": 1.0,
+      "other_real_per_run": 0.0
+    },
+    "0.04": {
+      "detected": 20,
+      "seeds": 20,
+      "power": 1.0,
+      "other_real_per_run": 3.25
+    }
+  },
+  "runtime_s": 1822.7
+}

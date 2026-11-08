@@ -74,9 +74,19 @@ class Lichess:
             self.s.headers["Authorization"] = f"Bearer {tok}"
 
     def get(self, path, **kw):
-        """One request at a time; on 429 wait a minute (per the API docs) and slow down."""
+        """One request at a time; on 429 wait a minute (per the API docs) and slow down.
+        Dropped connections / timeouts are retried up to 5 times with back-off."""
+        tries = 0
         while True:
-            r = self.s.get(API + path, timeout=60, **kw)
+            try:
+                r = self.s.get(API + path, timeout=60, **kw)
+            except (requests.ConnectionError, requests.Timeout) as e:
+                tries += 1
+                if tries > 5:
+                    raise
+                print(f"network error ({type(e).__name__}): retry {tries}/5 in {10 * tries}s", flush=True)
+                time.sleep(10 * tries)
+                continue
             if r.status_code == 429:
                 self.pause = min(self.pause * 2, MAX_PAUSE)
                 print(f"429 rate-limited: sleeping 60s, pause now {self.pause:.1f}s", flush=True)

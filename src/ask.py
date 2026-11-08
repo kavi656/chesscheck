@@ -2,21 +2,29 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from src.proposer import SYSTEM, call_llm, get_summary, schema_for_prompt, to_template
 
 LEDGER = "results/ledger_main.jsonl"
+DEFAULT_MIN_EFFECT = 0.005  # same bar as the hand-written bank (~3.5 Elo)
+SIZE_RE = re.compile(r"\d+(\.\d+)?\s*(elo|rating points?|score points?|points?|%|percent)", re.I)
 
 
 def translate(question: str, client=None) -> dict:
     prompt = ("Convert this ONE plain-English hypothesis from a user into exactly one hypothesis in the schema. "
-              "Keep the user's meaning; choose the direction they imply; do not make it more likely to be significant.\n\n"
+              "Keep the user's meaning; choose the direction they imply; do not make it more likely to be significant. "
+              f"Use min_effect = {DEFAULT_MIN_EFFECT} (the project standard) unless the user states a size.\n\n"
               f"User hypothesis: {question}\n\n## Feature schema\n{json.dumps(schema_for_prompt(), indent=1)}")
     text, _ = call_llm(prompt, client)
     h = json.loads(text)["hypotheses"][0]
     t = to_template(h)
     t["rationale"] = f"asked by a user: {question}"
+    if not SIZE_RE.search(question):
+        # The size bar is a policy choice, not something the LLM should vary between near-identical questions:
+        # without it, "within 5 min" got 0.005 and "within 4 min" got 0.01, so the same effect passed and failed.
+        t["min_effect"] = DEFAULT_MIN_EFFECT
     return t
 
 

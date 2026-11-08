@@ -351,6 +351,12 @@ def ledger_frame(states: list[dict]) -> pd.DataFrame:
 ELO_PER_POINT = 1600 / 2.302585  # near equal ratings, d(expected score)/d(Elo) = ln(10)/1600 -> ~695 Elo per point
 
 
+def shown_verdict(v, killed_at) -> str:
+    """LUCKY killed only by the size check is significant but too small to matter, so call it that.
+    The ledger keeps the formal LUCKY (spec: significant on explore, failed a later stage)."""
+    return "TOO SMALL" if v == "LUCKY" and killed_at == "min_effect" else v
+
+
 def elo(x) -> str:
     """Residual effect expressed as an equivalent rating change (exact near equal ratings)."""
     return "—" if x is None or pd.isna(x) else f"{x * ELO_PER_POINT:+.0f} Elo"
@@ -366,7 +372,9 @@ def evidence(r) -> str:
         return "—"
     if -me < lo and hi < me:
         return "NO EFFECT (confirmed)"
-    return "not shown either way" if r.get("verdict") == "REJECTED" else "looked real, failed later"
+    if r.get("verdict") == "REJECTED":
+        return "not shown either way"
+    return "real, but below the size bar" if r.get("killed_at") == "min_effect" else "looked real, failed later"
 
 
 FINDING_TITLES = {  # plain-English names for the findings (statements are kept on hover / in the ledger)
@@ -703,9 +711,10 @@ with tabs[1]:
                 "\"we couldn't tell\" from \"we checked, and any effect that would matter is ruled out\". "
                 "Click a row for the full spec, the per-rating-band breakdown and the reasoning behind it.")
         verdicts = st.multiselect("Verdict", sorted(df.verdict.dropna().unique()), default=sorted(df.verdict.dropna().unique()))
-        VBADGE = {"REAL": "🟢 REAL", "LUCKY": "🟣 LUCKY", "REJECTED": "⚪ REJECTED", "UNDERPOWERED": "🟠 UNDERPOWERED",
-                  "INVALID": "⚫ INVALID", "DUPLICATE": "⚫ DUPLICATE"}
-        view = df[df.verdict.isin(verdicts)].assign(verdict_badge=lambda d: d["verdict"].map(VBADGE).fillna(d["verdict"]),
+        VBADGE = {"REAL": "🟢 REAL", "LUCKY": "🟣 LUCKY", "TOO SMALL": "🟤 TOO SMALL", "REJECTED": "⚪ REJECTED",
+                  "UNDERPOWERED": "🟠 UNDERPOWERED", "INVALID": "⚫ INVALID", "DUPLICATE": "⚫ DUPLICATE"}
+        view = df[df.verdict.isin(verdicts)].assign(verdict_badge=lambda d: [
+            VBADGE.get(shown_verdict(v, k), v) for v, k in zip(d["verdict"], d["killed_at"])],
                                                     killed_at=lambda d: d["killed_at"].fillna(""))
         view = view[["id", "verdict_badge", "killed_at", "evidence", "statement", "explore_elo", "explore_effect", "explore_p", "explore_n", "validate_effect",
                                              "validate_p", "vault_effect", "vault_p", "source", "direction", "reason"]]
@@ -1161,13 +1170,25 @@ with tabs[5]:
             st.cache_data.clear()
     res = st.session_state.get("ask_res")
     if res and spec:
-        pill = {"REAL": "real", "LUCKY": "lucky"}.get(res["verdict"], "rej")
-        st.markdown(f'#### Verdict: <span class="pill {pill}" style="font-size:1rem">{res["verdict"]}</span>',
+        shown = shown_verdict(res["verdict"], res.get("killed_at"))
+        pill = {"REAL": "real", "LUCKY": "lucky"}.get(shown, "rej")
+        st.markdown(f'#### Verdict: <span class="pill {pill}" style="font-size:1rem">{shown}</span>',
                     unsafe_allow_html=True)
+        if res["verdict"] == "DUPLICATE":
+            st.info("This exact spec was already tested, so it isn't tested again (re-asking the same question "
+                    "until it passes would be p-hacking). Find the earlier result in the Ledger tab.")
+        if shown == "TOO SMALL":
+            ex0 = res["stages"].get("explore", {})
+            st.markdown(f'<div class="claim"><div><b>Real, but too small to matter.</b> The effect is clearly there '
+                        f'(p = {ex0.get("p", 0):.1g}), but at {elo(ex0.get("effect", 0))} it is below the minimum of '
+                        f'{spec.get("min_effect")} score points (≈ {spec.get("min_effect", 0) * ELO_PER_POINT:.1f} Elo) '
+                        f'fixed before testing. With millions of games, tiny effects are always significant; the '
+                        f'size bar is what stops them being called discoveries. Logged formally as LUCKY at the size '
+                        f'check.</div></div>', unsafe_allow_html=True)
         st.markdown(stage_path(res), unsafe_allow_html=True)
         ex = res["stages"].get("explore", {})
         if ex.get("effect") is not None:
-            ev = evidence({"verdict": res["verdict"], "explore_lo": ex.get("ci_low"), "explore_hi": ex.get("ci_high"),
+            ev = evidence({"verdict": res["verdict"], "killed_at": res.get("killed_at"), "explore_lo": ex.get("ci_low"), "explore_hi": ex.get("ci_high"),
                            "min_effect": spec.get("min_effect")})
             st.markdown(f"Explore effect **{ex['effect']:+.4f}** ({elo(ex['effect'])}), 95% CI "
                         f"[{ex.get('ci_low', 0):+.4f}, {ex.get('ci_high', 0):+.4f}], {ex.get('n_treated', 0):,} games. "

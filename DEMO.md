@@ -49,7 +49,7 @@
 | Null calibration | **0 / 2,800** false REAL (57 hyps × 50 shuffles); naive p<0.05: 5.4% |
 | Power | 10% / 100% / 100% / 100% at δ = 0.005 / 0.01 / 0.02 / 0.04 (min_effect = 0.005) |
 | Naive on null | auto p-hacker 131 → 0 REAL; Claude 6 → 0 REAL |
-| Main ledger | 57 hypotheses → 14 REAL (**7 distinct findings**), 19 LUCKY, 23 REJECTED, 1 UNDERPOWERED |
+| Main ledger | 57 hypotheses → 14 REAL (**7 distinct findings**), 19 LUCKY (12 of them TOO SMALL), 23 REJECTED, 1 UNDERPOWERED |
 | Live commitment | 2026-11-08 08:53 UTC · 16 hypotheses · SHA-256 `1f3368e9…` · final test 11:53 UTC |
 | Live final test | 1,995 post-commit games · **0 / 16 confirmed** · 9 / 16 in predicted direction · CI widths 0.08–0.44 vs sealed effects 0.006–0.039 |
 | Bias caught | plain within-player test: "tilt" +0.047 at p = 10⁻²¹³ on pure noise → fixed |

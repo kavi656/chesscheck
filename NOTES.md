@@ -87,7 +87,7 @@
 - **It sees only the schema, explore-only aggregates and the ledger's existing statements.** The exact prompt and raw response of every attempt are saved in `results/proposer/`.
 - **First batch: Claude returned 19 hypotheses for a request of 20, all valid on the first attempt** (8.4k input / 3.2k output tokens). We did not top up to 20: an extra batch only adds ledger entries and tightens BH.
 - **Offline template proposer (`src/offline_proposer.py`)** was built first, while no API key was available. That followed the spec's rule of picking the closest sensible alternative. It sees the same inputs and covers the same themes, and its 20 hypotheses are in the main ledger too, so every proposal counts toward BH.
-- **Main ledger after both batches: 57 hypotheses** (18 hand, 20 offline, 19 LLM) → 14 REAL, 19 LUCKY, 23 REJECTED, 1 UNDERPOWERED. The BH threshold at m = 56 testable is ≈ 5e-5.
+- **Main ledger after both batches: 57 hypotheses** (18 hand, 20 offline, 19 LLM) → 14 REAL, 19 LUCKY (12 of them only failed the size check, shown as TOO SMALL), 23 REJECTED, 1 UNDERPOWERED. The BH threshold at m = 56 testable is ≈ 5e-5.
 
 ## Naive mode
 - **It uses the same proposer, explore only, no correction, and up to 3 refinement rounds with the explore p-values shown.**
@@ -146,3 +146,7 @@
 
 ## Dashboard
 - Dark theme set in `.streamlit/config.toml`. A new Overview tab states each claim with its evidence, the findings in Elo terms, the limitations and the method sources. Each tab starts with a plain-English explainer. The Live tab verifies the hash on screen and counts down to the final test. The Ask tab shows the spec in words and the stage at which the hypothesis died. *Why:* judges should be able to follow the funnel without us in the room.
+
+## Ask: size bar and TOO SMALL label (2026-11-08)
+- **Ask questions use min_effect = 0.005 unless the user states a size.** *Why:* the LLM chose 0.01 for "lost within 4 min" but the bank uses 0.005 for "within 5 min", so near-identical questions got different bars and the same tilt effect (−4 to −6 Elo, p < 1e-25) passed for one and failed for the other. The bar is a policy choice, so code fixes it, not the LLM.
+- **"TOO SMALL" display label.** A hypothesis that is significant (and survives BH) but has |effect| < min_effect is stored as LUCKY at stage `min_effect`, per the spec. The dashboard shows it as TOO SMALL, because p = 1e-38 is not luck; it is a real effect below the size that matters. The ledgers are not rewritten (the vault cannot be re-read), so this is a display mapping only.

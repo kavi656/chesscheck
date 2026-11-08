@@ -40,7 +40,7 @@ cp .env.example .env   # then fill in ANTHROPIC_API_KEY (and optionally LICHESS_
 | | |
 |---|---|
 | Data | Lichess Oct 2026, 11.1M rated blitz games (BOT and >200-games-a-day accounts excluded), 22.2M player-game rows |
-| Main ledger | 57 hypotheses (18 hand, 20 template, 19 Claude) → **14 REAL (7 distinct findings)**, 19 LUCKY, 23 REJECTED, 1 UNDERPOWERED |
+| Main ledger | 57 hypotheses (18 hand, 20 template, 19 Claude) → **14 REAL (7 distinct findings)**, 19 LUCKY (12 of them TOO SMALL), 23 REJECTED, 1 UNDERPOWERED |
 | Null calibration | **0 false REAL in 2,800 null tests** (57 hypotheses × 50 outcome-shuffled datasets; 0/50 runs with any REAL). Naive p<0.05 on the same nulls: 5.4% false discoveries per hypothesis (3.0 per run) |
 | Power (planted tilt effect) | 10% / 100% / 100% / 100% at δ = 0.005 / 0.01 / 0.02 / 0.04 (min_effect = 0.005) |
 | Naive vs honest on null data | deterministic p-hacker: 131 "discoveries" → **0** REAL; Claude with 3 refinement rounds: 6 → **0** REAL |
